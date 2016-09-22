@@ -1,0 +1,97 @@
+<!doctype html>
+
+<html lang="en">
+
+	<head>
+
+		<link href="https://fonts.googleapis.com/css?family=Cormorant:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+		<title>stage03_01</title>
+
+		<style>
+
+			body{
+				font-family: 'Cormorant', serif;
+				width: 500px}
+
+		.title{
+			margin: 30px 5px 5px 45px;
+		}
+
+		.date{
+			margin: 0px 5px 30px 200px;
+
+		}
+
+		.main{
+			padding: 50px 70px 20px 30px;
+			width:500px;
+			display: block;
+			background-color: #ddd
+		}
+		.name{
+			padding: 85px 60px 5px 15px;
+			position:relative;
+		    width:500px;
+		    height:60px;
+		    background:#666;
+		    left:50px;
+		    top:100px;
+		}
+
+		.url{
+			color:#999; 
+		    margin-top: 50px;
+		    margin-bottom: 100px;
+		    margin-right: 150px;
+		    margin-left: 80px;
+		    background:#333;
+		}
+
+
+		a:link    {color:#000; font-weight: bold; background-color:transparent; text-decoration:underline}
+      	a:visited {color:#999; background-color:transparent; text-decoration:none}
+      	a:hover   {color:#666; background-color:transparent; text-decoration:underline}
+      	a:active  {color:#000; background-color:transparent; text-decoration:underline}
+
+		</style>
+
+	</head>
+
+	<body>
+		<div class="title"><h1>The New<br>&nbsp;&nbsp;&nbsp;Typography</h1></div>
+
+		<div class="date"><h4>&nbsp;&nbsp;&nbsp;[1923]</h4></div>
+
+		<div class="name">&mdash; Laszlo Moholy-Nagy</div><br><br><br><br><br>
+
+		<div class="main">Typography is a tool of communication.<br>It must be communication in its most intense form. The emphasis must be on absolute clarity since this distinguishes the character of our own writing from that of ancient pictographic forms.<br><br>
+		
+		Our intellectual relationship to the world is individual-exact (e.g.,this individual-exact relationship is in a state of transition toward a collective-exact orientation). This is in contrast to the ancient individual-amorphous and later collective-amorphous mode of communication. Therefore priority: unequivocal clarity in all typographical compositions.<br><br>
+
+		Legibility-communication must never be impaired by an a priori aesthetics.</div><br><br>
+
+		<div class="url">Read the entire manifesto <a href="https://designopendata.wordpress.com/portfolio/the-new-typography/">here</a></div>
+
+
+		<div class="title">
+		</div>
+
+		<div class="main">
+		</div>
+
+		<div class="name">
+		</div>
+
+		<div class="date">
+		</div>
+
+		<div class="url">
+		</div>
+
+
+
+	</body>
+
+
+</html>
