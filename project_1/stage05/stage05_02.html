@@ -14,30 +14,52 @@
 				font-family: 'Cormorant', serif;}
 
 				.fade{
-					color: #f6f6f6;
-					font-size: 1em;
-					animation-duration: 6s;
-					animation-delay: 1s;
-					animation-timing-function: ease-in;
-					animation-iteration-count: 1;
-					animation-name: fade;
+					color: #ccc;
+					font-size: 17em;
+					margin-top: 10px;
+					margin-left: 2px;
+					top: 20px;
+					left: 50px;
+					transition-property: color, font-size;
+					transition-duration: 6s;
+	  				transition-timing-function: ease-in;
+/*    				background-color:red;
+*/					position: relative;
+    				z-index:initial;
+	  				}
+
+	  			.fade:hover {
+	  				color: #000;
+  					font-size: 3em;
 					}
 
-	  			@keyframes fade {
-	  				from {color: #f6f6f6; font-size: 1em;}
-  					to {color: #fd2dd8; font-size: 20em;}
-					}
+				.scroll{
+					top: 20px;
+					margin-left: 160px;
+					z-index:4;
+					width: 1000px;
+					color:#910a30;
+					font-weight: 700;
+					font-size: 1.5em;
+					font-size-adjust: 1.5em;
+					position: relative;
+				}
 
-
+				.info{
+					color: #000;
+					font-size:0.75px;
+					text-align: right;
+				}
 
 		</style>
 
 	</head>
 
 	<body>
-		<div class="fade">The New<br>Typography</div><br>
 
-		<!--  [1923] Laszlo Moholy-Nagy
+		<div class="fade">The New<br>Typography</div><br><br><br>
+
+		<p class="scroll">
 
 		Typography is a tool of communication. It must be communication in its most intense form. The emphasis must be on absolute clarity since this distinguishes the character of our own writing from that of ancient pictographic forms.
 		
