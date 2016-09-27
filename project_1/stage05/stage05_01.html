@@ -13,20 +13,66 @@
 			body{
 				font-family: 'Cormorant', serif;}
 
-				.fade{
-					color: #ccc;
-					font-size: 5em;
-					transition-property: color, font-size;
-					transition-duration: 6s;
-	  				transition-timing-function: ease-in;
-	  				}
+			.container {
+			  width: 700px;
+			}
+			section,
+			aside {
+			  margin: 5px;
+			}
+			section {
+			  float: left;
+			  width: 500px;
+			  height: 1000px;
+			}
+			aside {
+			  float: right;
+			  width: 158px;
+			}
 
-	  			.fade:hover {
-	  				color: #000;
-  					font-size: 20em;
-  					animation-fill-mode: forwards;
+			.title{
+				color:#a50b28;
+				font-weight: 700;
+				font-size: 5em;
+				line-height: 90%;
+			}
+
+			.special{
+				color:#a50b28;
+				font-weight: 600;
+			}
+
+			.info{
+				color:#000;
+				font-family: monospace;
+				font-size: 1.35em;
+				text-align: right;
+				margin-right: 70px;
+			}
+
+			.main{
+				color:#888;
+				font-weight: 500;
+				line-height: 115%;
+				font-size: 2em;
+				text-align: justify;
+				text-align-last: left;
+				margin-right: 50px;
+			}
+
+			.scroll{
+					animation-duration: 6s;
+					animation-delay: 0s;
+					animation-timing-function: ease-out;
+					animation-iteration-count: 1;
+					animation-fill-mode: forwards;
+					animation-name: scroll;
 					}
 
+	  		@keyframes scroll {
+	  				from {color: #aaa; margin-top: 1000px}
+  					to {color: #920721; margin-top: 10px}
+					}
 
 
 		</style>
