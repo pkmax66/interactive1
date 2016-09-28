@@ -1,3 +1,81 @@
+<!doctype html>
+
+<html lang="en">
+
+	<head>
+
+		<link href="https://fonts.googleapis.com/css?family=Cormorant:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+		<title>stage05_04</title>
+
+		<style>
+
+			body{
+				font-family: 'Cormorant', serif;
+				background-color: #ffa500; 
+			}
+
+			.title{
+				font-weight: 700;
+				font-size: 18em;
+				top: 10px;
+				position: fixed;
+		      	left: 50%;
+		      	transform: translate(-50%);
+		      	margin: 5px;
+			}
+
+			.popout{
+					animation-duration: 6s;
+					animation-delay: 0s;
+					animation-timing-function: ease-in;
+					animation-iteration-count: 1;
+					animation-fill-mode: forwards;
+					animation-name: hide;
+					z-index: 1;
+			}
+
+	  		@keyframes hide {
+	  				from {color: #fd2dd8; transform:skew(0deg);}
+  					to {color: #ffa500;transform:skew(10deg, 10deg);}
+  			}
+
+  			.reveal{
+  					color: #FFF;
+  					opacity: 0.0;
+  					font-weight: 600;
+  					font-size: 3em;
+					animation-duration: 15s;
+					animation-delay: 2s;
+					animation-timing-function: ease-in;
+					animation-iteration-count: 2;
+					animation-name: show;
+					z-index: 4;
+			}
+
+	  		@keyframes show {
+	  				from {opacity: 0.1}
+  					to {opacity: 1.0}
+  			}
+
+  			.reveal2{
+  					color: #FFF;
+  					opacity: 0.0;
+  					font-weight: 600;
+  					font-size: 3em;
+					animation-duration: 20s;
+					animation-delay: 2s;
+					animation-timing-function: ease-in;
+					animation-iteration-count: 2;
+					animation-name: show2;
+					z-index: 4;
+			}
+
+	  		@keyframes show2 {
+	  				from {font-size: 5em, opacity: 0.1}
+  					to {font-size: 3em, opacity: 1.0}
+  			}
+
 			.nav{
 				font-family: monospace;
 				text-align: right;
@@ -14,6 +92,27 @@
 
 			a:hover, a:active{
 			    background-color: yellow;
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<div class="popout">
+		<p class="title">The New<br>Typography<br></p>
+		</div>
+
+		<div class="reveal">
+		[1923] Laszlo Moholy-Nagy
+
+		Typography is a tool of communication. It must be communication in its most intense form. The emphasis must be on absolute clarity since this distinguishes the character of our own writing from that of ancient pictographic forms.
+		
+		Our intellectual relationship to the world is individual-exact (e.g.,this individual-exact relationship is in a state of transition toward a collective-exact orientation). This is in contrast to the ancient individual-amorphous and later collective-amorphous mode of communication. Therefore priority: unequivocal clarity in all typographical compositions.
+
+		Legibility-communication must never be impaired by an a priori aesthetics.
+		</div>
+
 		<div class="nav">
 
 		<a href="../index.html">&larr;&nbsp;previous</a>&nbsp;&nbsp;&nbsp;
@@ -21,3 +120,7 @@
 		<a href="stage01_02.html">next&nbsp;&rarr;</a>
 
 		</div>
+	</body>
+
+
+</html>
