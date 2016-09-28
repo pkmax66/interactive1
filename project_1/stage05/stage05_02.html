@@ -23,8 +23,7 @@
 					transition-property: color, font-size;
 					transition-duration: 6s;
 	  				transition-timing-function: ease-in;
-/*    				background-color:red;
-*/					position: relative;
+					position: relative;
     				z-index:initial;
 	  				}
 
@@ -46,10 +45,37 @@
 				}
 
 				.info{
-					color: #000;
-					font-size:0.75px;
+					color: #888;
+					font-weight: 500;
+					font-size: 1.15em;
 					text-align: right;
-				}
+					position: absolute;
+					left: 1050px;				}
+
+			.nav{
+				font-family: monospace;
+				position: absolute;
+				margin-top: 80px;
+				margin-left: 50px;
+				animation-duration: 5s;
+				animation-timing-function: ease-in;
+				animation-name: new;		
+			}
+
+			@keyframes new {
+	  				from {color: #FFF;}
+  					to {color: #ccc;}
+					}
+
+			a:link, a:visited {
+			    text-align: center;
+				color: #ccc;
+			    text-decoration: none;
+			    display: inline-block;
+			}
+
+			a:hover, a:active {
+			    background-color: yellow;
 
 		</style>
 
@@ -57,7 +83,7 @@
 
 	<body>
 
-		<div class="fade">The New<br>Typography</div><br><br><br>
+		<div class="fade">The New<br>Typography</div><br><br><br><br>
 
 		<p class="scroll">
 
@@ -65,7 +91,19 @@
 		
 		Our intellectual relationship to the world is individual-exact (e.g.,this individual-exact relationship is in a state of transition toward a collective-exact orientation).<br><br>This is in contrast to the ancient individual-amorphous and later collective-amorphous mode of communication. Therefore priority: unequivocal clarity in all typographical compositions.<br><br>
 
-		Legibility-communication must never be impaired by an a priori aesthetics.<br><br><br><!-- <span class="info"> -->&mdash;Laszlo Moholy-Nagy [1923]<!-- </span> --></p>
+		Legibility-communication must never be impaired by an a priori aesthetics.<br><br>
+		
+		<div class="info">&mdash; Laszlo Moholy-Nagy [1923]</div>
+
+		</p>
+
+		<div class="nav">
+
+		<a href="stage05_01.html">&larr;&nbsp;previous</a>&nbsp;&nbsp;&nbsp;
+		Read the entire manifesto <a href="https://designopendata.wordpress.com/portfolio/the-new-typography/" target="_blank">here</a>&nbsp;&nbsp;&nbsp;
+		<a href="stage05_03.html">next&nbsp;&rarr;</a>
+
+		</div>
 
 	</body>
 
