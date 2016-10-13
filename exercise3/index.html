@@ -29,10 +29,16 @@
   	}
 
   	.arr1 {
-  		animation: across 3s infinite;
+  		animation: across 3s infinite ease-in;
   		position: absolute;
+		display: inline-block;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 0 105.5px 109px 105.5px;
+		border-color: transparent transparent #ff9166 transparent;
 /*  		left: -100px; redundant to specs in "across"
-*/  		top: 100px;
+*/  	top: 100px;
   	}
 
   	.arr2 {
@@ -44,17 +50,22 @@
   	}
 
   	.arr3 {
-  		animation: whale 15s infinite;
-		border-width: 200px 0 200px 400px;
-		opacity: 0.5;
+  		animation: whale 5s infinite;
+  		display: inline-block;
+  		border-style: solid;
+		border-width: 200px 200px 0 0;
+		border-color: #68ff98 transparent transparent transparent;
+/*		border-width: 200px 0 200px 400px;
+		opacity: 0.5;*/
   		transform: rotate(180deg);
   		position: absolute;
 /*  		right: -400px;
-*/  		top: 250px;
+*/  	top: 250px;
   	}
 
   	.arr4 {
   		animation: diagonal 2s forwards;
+  		border-width: 25px 0 50px 50px;
 		border-color: transparent transparent transparent #FFCD55;
   		transform: rotate(45deg);
   		position: absolute;
@@ -66,25 +77,29 @@
   		animation: around 12s infinite;
   		transform: rotate(0);
   		position: absolute;
+  		border-color: white;
   		top: 50px;
   		left: 50px;
   	}
 
   	.arr6 {
-  		transform-origin:50% 200px;
+  		transform-origin:50% 400px;
   		animation: circling 5s linear infinite;
   		position: absolute;
+  		border-color: transparent transparent transparent pink;
   		top: 250px;
   		left: 250px;
   	}
 
 	@keyframes across {
-	  from {
+	  0% {
 	    left: -100px;
 	  }
-	  to {   
-	    left: 700px;
+	  50% {   
+	    left: 300px;
 	  }
+	  100% {
+	    left: -100px;}
 	}
 
 	@keyframes down {
@@ -97,11 +112,19 @@
 	}
 
 	@keyframes whale {
-	  from {
-	    right: -400px;
+	  0% {
+	  	top: -50px;
+	    right: -50px;
 	  }
-	  to {   
-	    right: 700px;
+
+	  50% {   
+	  	top: 300px;
+	    right: 300px;
+	  }
+
+	  100% {   
+	  	top: -50px;
+	    right: 1200px;
 	  }
 	}
 
@@ -109,10 +132,14 @@
 	  0% {
 	  	top: -100px;
 	    left: -100px;
+	    border-color: pink;
+
 	  }
 	  100% {
 	  	top: 300px;
 	    left: 300px;
+	    border-color: transparent transparent transparent orange;
+
 	  }
 /*	  100% {   
 	  	top: 700px;
@@ -124,14 +151,16 @@
 	  0% {
 	  	top: 50px;
 	    left: 50px;
+	    color: white;
 	  }
-/*	  24% { 
+	  24% { 
 	  	transform: rotate(0deg); 
-	  }*/
+	  }
 	  25% {
 	  	transform: rotate(90deg);
 	  	top: 50px;
 	    left: 500px;
+	    border-color: yellow;
 	  }
 	  49% { 
 	  	transform: rotate(90deg); 
@@ -175,16 +204,16 @@
   
   <div class="stage">
 
-<!--   	<div class="arrow arr1"></div>
+  	<div class="arrow arr1"></div>
 
   	<div class="arrow arr2"></div>
 
-  	<div class="arrow arr3"></div> -->
+  	<div class="arrow arr3"></div>
 
-<!--   	<div class="arrow arr4"></div>
- -->
-<!--   	<div class="arrow arr5"></div>
- -->
+  	<div class="arrow arr4"></div>
+
+  	<div class="arrow arr5"></div>
+
   	<div class="arrow arr6"></div>
 
   </div>
