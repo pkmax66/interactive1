@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Abhaya+Libre" rel="stylesheet">
+  <title>Good Bird : Bad Bird</title>
+
+  <meta charset="utf-8" />
+
+  <style>
+
+    body{background-color: black;
+        font-family: 'Alfa Slab One', cursive;
+        font-family: 'Abhaya Libre', serif;
+        margin: 0;
+    	padding: 0;
+     	animation-name: fadeWhite;
+     	animation-delay: 22s;
+     	animation-duration: 2s;
+     	animation-fill-mode: forwards;}
+
+     	@keyframes fadeWhite{
+     		from{background-color: black;}
+     		to{background-color: white;}
+     	}
+
+
+    	.H1{
+    	font-family: 'Alfa Slab One', cursive;
+    	color: white;
+    	position: fixed;
+    	top: 130px;
+		left: 50%;
+		transform: translate(-50%);
+    	letter-spacing: 0.1em;
+    	font-size: 2.5em;
+    	white-space: nowrap;
+  		overflow: hidden;
+  		width: 26em;
+  		animation: type 5s steps(60, end);
+		}
+
+		@keyframes type{ 
+		  from { width: 0;} 
+		}
+
+		.H2{
+    	font-family: 'Alfa Slab One', cursive;
+		position: fixed;
+    	top: 130px;
+		left: 50%;
+		transform: translate(-50%);
+    	letter-spacing: 0.1em;
+    	text-align: center;
+    	font-size: 2.5em;
+    	width: 26em;
+  		animation-name: skyWrite; 
+		animation-duration: 26s;
+		animation-fill-mode: forwards;
+		}
+
+		@keyframes skyWrite{ 
+		  0% {opacity: 0;} 
+		  94% {opacity: 0;} 
+		  95% {opacity: 0.5;}
+		  100% {opacity: 1; font-size: 3.0em;} 
+		}
+
+		.main {
+		font-family: 'Abhaya Libre', serif;
+		font-size: 2em;
+		line-height: 2em;
+		}
+
+		.manifesto{
+    	color: #ccc;
+    	position: fixed;
+		top: 250px;
+		left: 50%;
+		transform: translate(-50%);
+		width: 950px;
+  		animation: fadein;
+  		animation-duration: 16s;
+		animation-fill-mode: forwards;
+		}
+
+		@keyframes fadein{ 
+		  0% {opacity: 0} 
+		  25% {opacity: 0}
+		  26% {opacity: .02}
+		  90% {opacity: 1}
+		  99% {opacity: .02}
+		  100% {opacity: 0}
+		}
+
+    .badBird{
+        position:relative;
+        margin:0 auto;
+      }
+
+      #badBird img {
+        width:1200px;
+        left:-100px;
+        top: 220px;
+        position:absolute;
+        z-index: initial;
+        animation-name: transBad;
+        animation-duration: 25s;
+        animation-timing-function: ease-in-out;
+        animation-direction: normal;
+        animation-fill-mode: forwards;
+      }
+
+		@keyframes transBad{
+		0%{opacity: 0;}
+		75%{opacity: 0;}
+/*		75%{opacity: .1;}
+*/		80%{opacity: .15;}
+		85%{opacity: .5;}
+		90%{opacity: .2}
+		100%{opacity: 0;}
+
+		}
+
+    .goodBird{
+        position:relative;
+        margin:0 auto;
+      }
+
+      #goodBird img {
+        width:1200px;
+        position:absolute;
+        animation-name: trans;
+        animation-duration: 3s;
+        animation-delay: 20s;
+        animation-timing-function: ease-in-out;
+        animation-direction: normal;
+        animation-fill-mode: forwards;
+      }
+
+      #goodBird img.frame1 {
+      left:-100px;
+      top: 220px;
+      opacity: 0;
+      animation-delay:22s;
+      }
+
+      #goodBird img.frame2 {
+      left:300px;
+      top: 220px;
+      opacity: 0;
+      animation-delay:25s;
+      }
+
+      #goodBird img.frame3 {
+      opacity: 0;
+      animation-delay:29s;
+      left:550px;
+      top: 170px;
+      animation-name: trans;
+      z-index: initial;
+      }
+
+      #goodBird img.frame4 {
+      opacity: 0;
+      animation-duration: 5s;
+      animation-delay:34s;
+      left:1000px;
+      bottom: 0px;
+      }
+
+
+        @keyframes trans {
+        0% {
+        opacity:0;
+        }
+        45% {
+        opacity:1;
+        }
+        55% {
+        opacity:0.75;
+        }
+        75% {
+        opacity:0.5;
+        }
+        100% {
+        opacity:0;
+        transform: translate(300px,0);
+        transform: scale(1.10);
+        transform: perspective(-35px;)
+        }
+        }
+/*
+        @keyframes trans2 {
+        0% {
+        opacity:0;
+        }
+        45% {
+        opacity:.075;
+        }
+        55% {
+        opacity:0.5;
+        }
+        75% {
+        opacity:0.25;
+        }
+        100% {
+        opacity:0;
+        transform: translate(300px,0);
+        transform: scale(1.10);
+        transform: perspective(-35px;)
+        }
+        }*/
+
+		.closing{
+	 		position: fixed;
+			top: 385px;
+			left: 50%;
+			transform: translate(-50%);
+			width: 950px;
+			animation-duration: 12.5s;
+			animation-delay: 8s;
+			animation-fill-mode: forwards;
+			animation-name: bright
+		}
+
+		@keyframes bright{
+			0%{color:black;}
+			80%{color: white; top: 385px;}
+			100%{color: white; top: 250px;}
+		}
+
+      .bad{
+        font-family: 'Alfa Slab One', cursive;
+        font-size: 7em;
+        color: transparent;
+        position: absolute;
+        left: 35%;
+        margin-right: -65%;
+    		bottom: 0px;
+        animation-duration: 13s;
+        animation-delay: 28s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-name: spin1;
+        }
+
+        @keyframes spin1{
+          0%{transform: rotate3d(0, 1, 0, 90deg);}
+          90%{transform: rotate3d(0, 1, 0, 0deg);}
+          99%{bottom: 146px; color: black;}
+          100%{bottom: 146px; color: #1b53ac;}
+        }
+
+        .good{
+        font-family: 'Alfa Slab One', cursive;
+        font-size: 7em;
+        color: transparent;
+        position: absolute;
+        left: 20%;
+        margin-right: -80%;
+    		bottom: 250px;
+        animation-duration: 13s;
+        animation-delay: 28s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-name: spin2;
+    	}
+
+        @keyframes spin2{
+          0%{transform: rotate3d(0, 1, 0, 90deg);}
+          90%{transform: rotate3d(0, 1, 0, 0deg);}
+          99%{bottom: 362px; color: black;}
+          100%{bottom: 362px; color: #1b53ac;}
+        }
+
+      .bird{
+        font-family: 'Alfa Slab One', cursive;
+        font-size: 10em;
+        color: transparent;
+        position: absolute;
+    		left: 25%;
+      	margin-right: -75%;
+        animation-duration: 10s;
+        animation-delay: 26s;
+        animation-timing-function: ease-in;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-name: down;
+        }
+
+        @keyframes down{
+          0%{bottom: 350px;}
+          70%{bottom: 220px; color: black;}
+/*          95%{bottom: 270px; color: black;}
+*/          100%{bottom: 220px; color: black;}
+        }
+
+       .chooseG {
+        font-family: 'Alfa Slab One', cursive;
+        position: fixed;
+        bottom: 50px;
+        left: 50px;
+        letter-spacing: 0.1em;
+        font-size: 1.1em;
+        opacity: 0;
+        z-index: 4;
+      }
+
+      .chooseB {
+        font-family: 'Alfa Slab One', cursive;
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        letter-spacing: 0.1em;
+        font-size: 1.1em;
+        opacity: 0;
+        z-index: 4;
+      }
+
+      .hide {
+        animation: vanish 1s forwards;
+      }
+
+      @keyframes vanish{
+        from {opacity: 0;}
+        to {opacity: 1;}
+      }
+
+      .hide2 {
+        animation: vanish 4s forwards;
+      }
+
+      @keyframes vanish{
+        from {opacity: 0;}
+        to {opacity: 1;}
+      }
+
+      .slideUp {
+        animation: poof 1s forwards;
+      }
+
+      @keyframes poof{
+        from {top: 130px;}
+        to {top: -250px;}
+      }
+
+      .question{
+        font-family: 'Abhaya Libre', serif;
+        font-size: 5em;
+        position: absolute;
+        right: -850px;
+        bottom: 130px;
+      }
+
+      .show {
+        animation: slide-reveal 1.5s forwards alternate;
+      }
+
+      @keyframes slide-reveal {
+        from {
+          transform: translate(0,0);
+        }
+        to {
+          transform: translate(-1000px,0); color: #1b53ac;
+        }
+      }
+
+      .fadeIn {
+        animation: appear 1s forwards;
+      }
+
+      @keyframes appear{
+        from {opacity: 0;}
+        to {opacity: 1;}
+      }
+
+      .map {
+      position: absolute;
+      opacity: 0;
+		  left: 50%;
+    	margin-right: -50%;
+    	z-index: initial;
+      }
+
+      .mapUp {
+        animation: MapShow 1s forwards;
+      }
+
+      @keyframes MapShow{
+        from {opacity: 0;}
+        to {opacity: 1;}
+      }
+
+      .cornerR {
+        animation-name: lowR;
+        animation-duration: 5s;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes lowR{
+        0% {font-size: 7em; opacity: 1; right: 300px; bottom: 150px;}
+        100% {font-size: 1.1em; opacity: 0; bottom: 50px; right: 50px;}
+      }
+
+      .cornerL {
+        animation-name: lowL;
+        animation-duration: 5s;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes lowL{
+        0% {color: black; font-size: 7em; right: 50px; bottom: 360px;}
+        100% {color: transparent; font-size: 1.1em; bottom: 50px; left: 50px;}
+      }
+
+
+      a:link    {color:grey; background-color:transparent; text-decoration:none}
+      a:visited {color:grey; background-color:transparent; text-decoration:none}
+      a:hover   {color:yellow; background-color:transparent; text-decoration:underline}
+      a:active  {color:yellow; background-color:transparent; text-decoration:underline}
+
+
+ </style>
+
+    <script>
+
+      $(document).ready(function() {
+
+        $(".good").click(function(){
+          $('.bird').addClass('hide');
+          $('.H2').addClass('slideUp');
+          $('.question').addClass('show');
+          $('.bad').addClass('hide2');
+          $('.good').addClass('hide2');
+          $('.bad').addClass('cornerR');
+          $('.good').addClass('cornerL');
+          $('.chooseG').addClass('fadeIn');
+          $('.chooseB').addClass('fadeIn');
+        });
+
+        $(".bad").click(function(){
+          $('.bird').addClass('hide');
+          $('.H2').addClass('slideUp');
+          $('.question').addClass('show');
+          $('.bad').addClass('hide2');
+          $('.good').addClass('hide2');
+          $('.bad').addClass('cornerR');
+          $('.good').addClass('cornerL');
+          $('.chooseG').addClass('fadeIn');
+          $('.chooseB').addClass('fadeIn');
+        });
+
+        $(".question").click(function(){
+          $('.map').addClass('mapUp');
+        });
+
+      });
+
+    </script>
+</head>
+
+<body>
+
+
+	<div class="H1">Every day, we make millions of decisions.</div><br><br>
+
+		<div class="main">
+
+		<p class="manifesto">
+			Most of them are fast and basic:<br>
+			Who is that? Am I safe? Can I eat this?</p>
+
+		<p class="closing">
+		In order to do that, we break things down into simple ideas and symbols.<br>
+		For example, we divide the natural world into &#8220;good&#8221; and &#8220;bad&#8221;.</p>
+
+		</div>
+
+		<div id="badBird">
+		<img src="bb-frame-1.png" />
+		</div>
+
+		<div class="H2">We look up to the sky<br>and think to ourselves...</div><br><br>
+
+
+		<div id="goodBird">
+<!-- 	    <img class="frame4" src="gb-frame-2.png" />
+ -->	<img class="frame3" src="gb-frame-2.png" />
+	    <img class="frame2" src="gb-frame-1.png" />
+	    <img class="frame1" src="gb-frame-1.png" />
+	    </div>
+
+	    <div class="map">
+	    <img src="bird-map.png" />
+	    </div>
+
+	    <div class="bird">BIRD?</div>
+
+	    <div class="good">GOOD</div>
+
+	    <div class="bad">OR BAD?</div>
+
+	    <div class="question"><a href="exit.html">How do you decide?</a></div>
+
+	    <div class="chooseG"><a href="sparrow.html">GOOD</a></div>
+
+	    <div class="chooseB"><a href="crow.html">BAD</a></div>
+
+
+</body>
+
+</html>
