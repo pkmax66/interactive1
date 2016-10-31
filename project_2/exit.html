@@ -12,14 +12,27 @@
 
   <style>
 
-    body{background-color: black;
+    body{background-color: white;
          font-family: 'Alfa Slab One', cursive;
          font-family: 'Abhaya Libre', serif;
-     	 background-image: url("bird-map.png");/* no-repeat center center fixed;*/
-  		 background-size: cover;
-  		 width: 1440px;
-  		 background-color: white;
 		}
+
+        video#bgvid { 
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        background: url(bird-map.png) no-repeat;
+        background-size: cover; 
+    }
 
 		.main {
 		font-family: 'Abhaya Libre', serif;
@@ -35,6 +48,7 @@
     	width: 800px;
     	margin: 50px;
 		background-color: white;
+    opacity: .9;
 		}
 
 		.type {
@@ -77,6 +91,10 @@
 <body>
 
 
+    <video playsinline autoplay muted loop poster="bird-map.png" id="bgvid">
+         <source src="10089551.mp4" type="video/mp4">
+    </video>
+
 		<div class="main">
 
 		<p class="type">Bird Shapes</p>
@@ -84,6 +102,7 @@
 		However you decide &mdash; because of personal history or surrounding culture &mdash;<br>you'll notice that you have an immediate reaction to the shapes on this page.<br>And next time, maybe stop and think about the decisions<br>that you just made without even realizing it.
 		
 		</div>
+
 
 	    <div class="chooseG"><a href="sparrow.html">GOOD</a></div>
 
