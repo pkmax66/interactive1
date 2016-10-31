@@ -105,7 +105,7 @@
       #badBird img {
         width:1200px;
         left:-100px;
-      	bottom: -50px;
+        top: 220px;
         position:absolute;
         z-index: initial;
         animation-name: transBad;
@@ -144,14 +144,14 @@
 
       #goodBird img.frame1 {
       left:-100px;
-      bottom: -50px;
+      top: 220px;
       opacity: 0;
       animation-delay:22s;
       }
 
       #goodBird img.frame2 {
       left:300px;
-      bottom: -50px;
+      top: 220px;
       opacity: 0;
       animation-delay:25s;
       }
@@ -160,8 +160,8 @@
       opacity: 0;
       animation-delay:29s;
       left:550px;
-      bottom: 0px;
-      animation-name: trans2;
+      top: 170px;
+      animation-name: trans;
       z-index: initial;
       }
 
@@ -194,7 +194,7 @@
         transform: perspective(-35px;)
         }
         }
-
+/*
         @keyframes trans2 {
         0% {
         opacity:0;
@@ -214,7 +214,7 @@
         transform: scale(1.10);
         transform: perspective(-35px;)
         }
-        }
+        }*/
 
 		.closing{
 	 		position: fixed;
@@ -239,8 +239,8 @@
         font-size: 7em;
         color: transparent;
         position: absolute;
-    		left: 60%;
-      	margin-right: -40%;
+        left: 35%;
+        margin-right: -65%;
     		bottom: 0px;
         animation-duration: 13s;
         animation-delay: 28s;
@@ -253,8 +253,8 @@
         @keyframes spin1{
           0%{transform: rotate3d(0, 1, 0, 90deg);}
           90%{transform: rotate3d(0, 1, 0, 0deg);}
-          99%{bottom: 246px; color: black;}
-          100%{bottom: 246px; color: #1b53ac;}
+          99%{bottom: 146px; color: black;}
+          100%{bottom: 146px; color: #1b53ac;}
         }
 
         .good{
@@ -262,8 +262,8 @@
         font-size: 7em;
         color: transparent;
         position: absolute;
-    		left: 35%;
-        margin-right: -65%;
+        left: 20%;
+        margin-right: -80%;
     		bottom: 250px;
         animation-duration: 13s;
         animation-delay: 28s;
@@ -276,8 +276,8 @@
         @keyframes spin2{
           0%{transform: rotate3d(0, 1, 0, 90deg);}
           90%{transform: rotate3d(0, 1, 0, 0deg);}
-          99%{bottom: 462px; color: black;}
-          100%{bottom: 462px; color: #1b53ac;}
+          99%{bottom: 362px; color: black;}
+          100%{bottom: 362px; color: #1b53ac;}
         }
 
       .bird{
@@ -285,8 +285,8 @@
         font-size: 10em;
         color: transparent;
         position: absolute;
-    		left: 50%;
-      	margin-right: -50%;
+    		left: 25%;
+      	margin-right: -75%;
         animation-duration: 10s;
         animation-delay: 26s;
         animation-timing-function: ease-in;
@@ -297,9 +297,9 @@
 
         @keyframes down{
           0%{bottom: 350px;}
-          70%{bottom: 320px; color: black;}
+          70%{bottom: 220px; color: black;}
 /*          95%{bottom: 270px; color: black;}
-*/          100%{bottom: 320px; color: black;}
+*/          100%{bottom: 220px; color: black;}
         }
 
        .chooseG {
@@ -382,9 +382,9 @@
       }
 
       .map {
-        position: absolute;
-        opacity: 0;
-		left: 50%;
+      position: absolute;
+      opacity: 0;
+		  left: 50%;
     	margin-right: -50%;
     	z-index: initial;
       }
@@ -475,7 +475,7 @@
 
 		<p class="manifesto">
 			Most of them are fast and basic:<br>
-			Is this good or bad? Am I safe? Can I eat this?</p>
+			Who is that? Am I safe? Can I eat this?</p>
 
 		<p class="closing">
 		In order to do that, we break things down into simple ideas and symbols.<br>
