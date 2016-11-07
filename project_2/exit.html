@@ -6,7 +6,7 @@
 <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Abhaya+Libre" rel="stylesheet">
 
-  <title>Good Bird : Sparrow</title>
+  <title>Look Up</title>
 
   <meta charset="utf-8" />
 
@@ -30,8 +30,8 @@
         -moz-transform: translateX(-50%) translateY(-50%);
         -webkit-transform: translateX(-50%) translateY(-50%);
         transform: translateX(-50%) translateY(-50%);
-        background: url(bird-map.png) no-repeat;
-        background-size: cover; 
+/*        background: url(bird-map.png) no-repeat;
+        background-size: cover; */
     }
 
 		.main {
@@ -39,13 +39,13 @@
 		color: black;
 		font-size: 1.5em;
 		line-height: 1.5em;
-		position: fixed; 
+		position: absolute; 
 		left: 50%; 
-		top: 25%; 
+		top: 50%; 
 		transform: translate(-50%);
 		text-align: center;
-    	height: 250px;
-    	width: 800px;
+    	height: 500px;
+    	width: 1100px;
     	margin: 50px;
 		background-color: white;
     opacity: .9;
@@ -53,6 +53,10 @@
 
 		.type {
 			font-family: 'Alfa Slab One', cursive;
+/*      margin: 0;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%)*/
 		}
 
 
@@ -62,7 +66,7 @@
         bottom: 50px;
         left: 50px;
         letter-spacing: 0.1em;
-        font-size: 1.1em;
+        font-size: 1.5em;
         z-index: 4;
       }
 
@@ -72,7 +76,7 @@
         bottom: 50px;
         right: 50px;
         letter-spacing: 0.1em;
-        font-size: 1.1em;
+        font-size: 1.5em;
         z-index: 4;
       }
 
@@ -91,7 +95,7 @@
 <body>
 
 
-    <video playsinline autoplay muted loop poster="bird-map.png" id="bgvid">
+    <video playsinline autoplay muted loop id="bgvid">
          <source src="10089551.mp4" type="video/mp4">
     </video>
 
