@@ -1,0 +1,113 @@
+<!doctype html>
+
+<html lang="en">
+
+	<head>
+
+		<link href="https://fonts.googleapis.com/css?family=Cormorant:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+		<title>Exercise 6</title>
+
+		<style>
+
+			body{
+      			font-family: Verdana, Arial, sans-serif;
+		    }
+
+		    #dog{
+		    	width: 400px;
+		    	height: 300px;
+		    	background-image: url('dog.jpg');
+		    	cursor: pointer;
+		    	background-size: contain;
+		    	background-repeat: no-repeat;
+		    	margin-bottom: 50px;
+		    }
+
+		    #dog:hover {
+		    	background-image: url('dog2.jpg');
+		    }
+
+
+		    #cat{
+		    	width: 400px;
+		    	height: 300px;
+		    	background-image: url('cat.jpg');
+		    	cursor: pointer;
+		    	margin-left: 25px;
+		    	background-size: contain;
+		    	background-repeat: no-repeat;
+		    }
+
+
+		    #cat:hover {
+		    	background-image: url('cat2.jpg');
+		    }
+
+		</style>
+
+		<script>
+
+		    $(document).ready(function() {
+
+    			$("#dog").hover(
+
+    				function(){
+	    				// hover in
+	    				$("#bark")[0].pause();
+	    				$("#bark")[0].currentTime =0;
+	    				$("#bark")[0].play();
+    				},
+    				function(){
+    					// hover out
+    				}
+    			);
+
+    			// console.log($("#bark"));
+
+
+
+    			$("#cat").hover(
+
+    				function(){
+
+	    				// console.log($("#bark"));
+
+	    				$("#meow")[0].pause();
+	    				$("#meow")[0].currentTime =0;
+	    				$("#meow")[0].play();
+    				},
+    				// hover out
+    				function(){
+    				}
+
+    		    );
+
+    	});
+
+    		   
+
+    		    </script>
+
+	</head>
+
+	<body>
+
+	<div id="dog"></div>
+	<div id="cat"></div>
+
+	<audio id="bark">
+	<source src="bark.wav" type="audio/wav">
+	</audio>
+
+	<audio id="meow">
+	<source src="meow.wav" type="audio/wav">
+	</audio>
+
+
+	</body>
+
+
+</html>
