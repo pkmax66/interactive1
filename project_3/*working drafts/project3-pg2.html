@@ -1,0 +1,826 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Project 3 - Dayala
+  </title>
+  <style>
+
+/* Questions:
+- pop doesn't make location smaller
+- diary border doesn't change on hover
+- script line 426, nothing past first command is working
+- responsive script: at 450 it is empty - any way to fix*/
+    
+    body {
+      font-family: 'Noto Sans', sans-serif;
+        background: linear-gradient(135deg, rgba(244,220,244,0.7) 0%,rgba(217,237,242,0.65) 25%,rgba(47,99,188,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3f4dcf4', endColorstr='#802f63bc',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */}
+
+
+      a:link    {font-size: 0.5em; color:yellow; background-color:transparent; text-decoration:none}
+      a:visited {font-size: 0.5em; color:grey; background-color:transparent; text-decoration:none}
+      a:hover   {font-size: 0.5em; color:yellow; background-color:transparent; text-decoration:underline}
+      a:active  {font-size: 0.5em; color:yellow; background-color:transparent; text-decoration:underline}
+
+
+    #day {
+      margin: 0px auto;
+      width: 1895px;
+      padding: 10px;
+    }
+
+    #day img {
+      width: 250px;
+      height: 250px;
+    }
+
+    .today {
+      float: left;
+      padding-right: 5px;
+      padding-bottom: 5px;
+      width: 250px;
+      height: 250px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 4;
+    }
+
+    .date {
+      color: #105970;
+      font-size: 1em;
+      letter-spacing: .025em;
+      line-height: .75;
+      padding: 25px;
+      width: 220px;
+      height: 220px;
+      margin: 0 auto;
+      padding-right: 5px;
+      padding-bottom: 5px;
+      background-color: #f2f2f2;
+      box-shadow: inset 0 0 5px #999999;
+      position: absolute;
+      z-index: 4;
+      cursor: pointer;
+    }
+
+    .specialdate {
+      color: #105970;
+      font-size: 1em;
+      letter-spacing: .025em;
+      line-height: .75;
+      padding: 25px;
+      width: 220px;
+      height: 220px;
+      margin: 0 auto;
+      padding-right: 5px;
+      padding-bottom: 5px;
+      background-color: #e6f2ff;
+      box-shadow: inset 0 0 5px #999999;
+      position: absolute;
+      z-index: 4;
+      cursor: pointer;
+    }
+
+    .year {
+      color: #eee;
+    }
+
+    .location {
+      font-weight: 700;
+      padding-top: 170px;
+      padding-right: 25px;
+      color: #f2f2f2;
+      font-size: 0.35em;
+      text-align: right;
+      letter-spacing: .025em;
+      position: relative;
+    }
+
+    .location1 {
+      font-weight: 700;
+      padding-right: 25px;
+      color: #e6f2ff;
+      font-size: 0.35em;
+      text-align: right;
+      letter-spacing: .025em;
+      position: relative;
+    }
+
+    .event {
+      font-size: .65em;
+      padding-top: 110px;
+      line-height: 1;
+      color: #aaa;
+      z-index: 8;
+    }
+
+    .date:hover{
+      color: white;
+      font-style: bold;
+      transition: 0.75s ease-in;
+      background-color: #FCF4AA;
+      transform: scale(1.05);
+    }
+
+    .specialdate:hover{
+      color: white;
+      font-style: bold;
+      transition: 0.75s ease-in;
+      background-color: #FCF4AA;
+      transform: scale(1.05);
+    }
+
+    .pop{
+      color: #105970;
+      transition: 0.75s ease-in;
+    }
+
+    .diary {
+      font-size: 1em;
+      color: #ddd;
+      padding: 25px;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      background-color: #ddd;
+      border-width: 2px;
+      background-color: #ddd;
+      position: absolute;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .diary:hover{
+      transition: 0.75s ease-in;
+      color: #ccc;
+      cursor: pointer;
+      background-color: white;
+      border-width: 2px;
+      border-color: yellow;
+    }
+
+    .RIP {
+      font-size: 1em;
+      color: #ddd;
+      padding: 25px;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      background-color: #ddd;
+      border-width: 2px;
+      position: absolute;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .RIP:hover{
+      transition: 0.75s ease-in;
+      color: #ccc;
+      cursor: pointer;
+      background-color: white;
+      border-width: 2px;
+      border-color: yellow;
+    }
+
+/*    .photo {
+      width: 250px;
+      max-width: 100%;
+      height: auto;
+    	cursor: pointer;
+    	position: absolute;
+      z-index: 3;
+    }
+*/
+    .disappear {
+      z-index: initial;
+    }
+
+    .disappear2 {
+      opacity: 0;
+      height: 1px;
+    } 
+
+    .fade{
+      color: transparent;
+    }
+
+     .appear {
+      transition: 0.75s ease-in;
+      background-color: yellow;
+    }
+
+/*parked, may use*/
+
+/*    .reveal {
+      position: relative;
+    }
+    .reveal .cover {
+      transition: all 0.5s ease;
+      width: 100%;
+      height: 100%;
+      background-color: #DDD;
+      position: absolute;
+    }
+    .reveal .message {
+      width: 100%;
+      height: 100%;
+      background-color: #FFCD55;
+      position: absolute;
+    }
+    .reveal:hover .cover {
+      transform: translate(110px, 0);
+    }*/
+
+            /*responsive code*/
+                
+            @media screen and (min-width: 1895px) {
+                  #day {
+                    margin: 0px auto;
+                    width: 1895px;
+                  }
+                }
+                
+            @media screen and (max-width: 1700px) {
+                  #day {
+                    margin: 0px auto;
+                    width: 1650px;
+                  }
+                }
+
+            @media screen and (max-width: 1450px) {
+                  #day {
+                    margin: 0px auto;
+                    width: 1325px;
+                  }
+                }
+
+            @media screen and (max-width: 1180px) {
+                  #day {
+                    margin: 0px auto;
+                    width: 1200px;
+                  }
+                }
+
+                @media screen and (max-width: 930px) {
+                  #day {
+                    margin: 0 auto;
+                    width: 1000px;
+                  }
+                }
+
+                @media screen and (max-width: 685px) {
+                  #day {
+                    margin: 0 auto;
+                    width: 700px;
+                  }
+                }
+
+                @media screen and (max-width: 520px) {
+                  #day {
+                    margin: 0 auto;
+                    width: 600px;
+                  }
+                }
+
+                @media screen and (max-width: 519px) {
+                  #day {
+                    margin: 0 auto;
+                    width: 500px;
+                  }
+                }
+
+                @media screen and (max-width: 450px) {
+                  #day {
+                    margin: 0 auto;
+                    width: 500px;
+                  }
+                }
+
+                @media screen and (max-width: 449px) {
+
+                  #day {
+                    margin: 0 auto;
+                    width: 250px;
+                    height: 30px;
+                  }
+
+/*                  .yesterday {
+                    width: 250px;
+                    height: 250px;
+                  }
+*/
+                  .today {
+                    width: 250px;
+                    height: 250px;
+                  }
+
+/*                  .tomorrow {
+                    width: 250px;
+                    height: 250px;
+                  }
+*/
+                  .date {
+                    color: white;
+                    font-size: 1.25em;
+                    font-style: bold;
+                    padding: 10px;
+                    line-height: 1.5;
+                    width: 230px;
+                    height: 30px;
+                    margin: 0 auto;
+                    background-color: #bbb;
+                    border: 0px;
+                    border-color: transparent;
+                  }
+
+                  .date:hover {
+                    color: #bbb;
+                    background-color: #FCF18D;
+                    transform: scale(1.0);
+                  }
+
+                  .date:click {
+                    z-index: initial;
+                  }
+
+                  .year {
+                    color: transparent;
+                  }
+
+                  .month {
+                    color: transparent;
+                    width: 0;
+                  }
+
+                  .location {
+                    color: transparent;
+                  }
+
+                  .location1 {
+                    color: transparent;
+                  }
+
+                  .location:hover {
+                      opacity: 0;
+                  }
+
+                  .event{
+                    color: transparent;
+                  }
+
+                  .url {
+                    font-weight: 400;
+                    padding-top: 85px;
+                    color: yellow;
+                    font-size: .75em;
+                    text-align: right;
+                    letter-spacing: .0125em;
+                  }
+
+                  .img .photo {
+                    width: 250px;
+                    height: 250px;
+                  }
+
+                  .diary {
+                    font-size: 1em;
+                    color: #ddd;
+                    padding: 20px;
+                    width: 210px;
+                    height: 210px;
+                    margin: 0 auto;
+                    background-color: #ddd;
+                    position: absolute;
+                    z-index: 1;
+                    cursor: pointer;
+                  }
+
+                    .RIP {
+                    font-size: 1em;
+                    color: #ddd;
+                    padding: 20px;
+                    width: 210px;
+                    height: 210px;
+                    margin: 0 auto;
+                    background-color: #ddd;
+                    position: absolute;
+                    z-index: 1;
+                    cursor: pointer;
+                  }
+
+              }
+
+
+
+  </style>
+
+  <script>
+
+    $(document).ready(function() {
+
+
+    $('.today').hover(
+      function() {
+        $('.first', this).addClass('pop');
+        $('.year', this).addClass('pop');
+        $('.location', this).addClass('pop');
+        $('.location1', this).addClass('pop');
+        $('.event', this).addClass('fade');
+      },
+       function() {
+        $('.date', this).removeClass('pop');
+        $('.specialdate', this).removeClass('pop');
+        $('.year', this).removeClass('pop');
+        $('.location', this).removeClass('pop');
+        $('.location1', this).removeClass('pop');
+        $('.event', this).removeClass('fade');
+      }
+    );
+
+
+  		$(".photo").draggable();
+
+  		$(".photo.b01").click(function(){
+
+    			$(this).animate({
+            opacity: 0,
+            right: 2500,
+  			})
+  		});
+
+  		$(".photo.b02").click(function(){
+
+  			$(this).animate({
+          opacity: 0,
+          top: 500,
+      })
+      });
+
+  		$(".photo.b03").click(function(){
+
+  			$(this).animate({
+          opacity: 0,
+          left: 2500,
+  		})
+  		});
+
+
+    $('.day').hover(
+      function() {},
+      function() {
+
+        $('.photo.b01', this).css({
+            opacity: 1,
+            right: 0
+        });
+        $('.photo.b02', this).css({
+            opacity: 1,
+            top: 0
+        });
+        $('.photo.b03', this).css({
+            opacity: 1,
+            left: 0
+        });
+        $('.date', this).removeClass('disappear');
+      }
+    );
+
+
+    $('.date').click(function() {
+      $(this).addClass('on-click');
+      $(this).addClass('disappear');
+      $('.yesterday').addClass('disappear');
+      $('.tomorrow').addClass('disappear');
+      $('.container2').addClass('appear');
+    })
+
+        $('.diary').click(function() {
+
+        $(this).addClass('on-click');
+            $(this).addClass('disappear2');
+            // $('.date').addClass('reappear');
+      })
+
+
+        $('.RIP').click(function() {
+
+        $(this).addClass('on-click');
+            $(this).addClass('disappear2');
+      })
+
+
+      $('#bark')[0].volume = 0;
+
+      $('.RIP').hover(
+          function(){
+            // hover in
+            $('#bark')[0].pause();
+            $('#bark')[0].volume = 1;
+            $('#bark')[0].currentTime = 0;
+            $('#bark')[0].play();
+          }, 
+          function() {
+            $('#bark')[0].pause();
+            $('#bark')[0].volume = 0;
+            $('#bark')[0].currentTime = 0;
+          }
+        );
+
+  });
+
+  </script>
+
+  </script>
+</head>
+
+<body>
+
+<!-- <div class="month">NOV</div>
+ -->
+<section id="day">
+
+  <div class="today day">
+    <div class="date"><span class="first">NOV 01</span><span class="year">.2016</span><p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-07 15.27.32 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-07 14.56.18.jpg" class="photo b02" />
+    <img src="assets/2016-11-07 13.14.06.jpg" class="photo b03" />
+    <div class="RIP"><audio id="bark"><source src="assets/cohen.wav" type="audio/wav"></audio>thank you mr. cohen<br><br>R.I.P.<br><br><!-- <button id="mute">mute</button> --></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">02<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-07 15.27.32 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-07 14.56.18.jpg" class="photo b02" />
+    <img src="assets/2016-11-07 13.14.06.jpg" class="photo b03" />
+    <div class="RIP"><audio id="bark"><source src="assets/cohen.wav" type="audio/wav"></audio>thank you mr. cohen<br><br>R.I.P.<br><br><!-- <button id="mute">mute</button> --></div>
+  </div>
+
+    <div class="today day">
+    <div class="date">03<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-07 15.27.32 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-07 14.56.18.jpg" class="photo b02" />
+    <img src="assets/2016-11-07 13.14.06.jpg" class="photo b03" />
+    <div class="RIP"><audio id="bark"><source src="assets/cohen.wav" type="audio/wav"></audio>thank you mr. cohen<br><br>R.I.P.<br><br><!-- <button id="mute">mute</button> --></div>
+  </div>
+
+    <div class="today day">
+    <div class="date">04<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-07 15.27.32 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-07 14.56.18.jpg" class="photo b02" />
+    <img src="assets/2016-11-07 13.14.06.jpg" class="photo b03" />
+    <div class="RIP"><audio id="bark"><source src="assets/cohen.wav" type="audio/wav"></audio>thank you mr. cohen<br><br>R.I.P.<br><br><!-- <button id="mute">mute</button> --></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">05<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-07 15.27.32 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-07 14.56.18.jpg" class="photo b02" />
+    <img src="assets/2016-11-07 13.14.06.jpg" class="photo b03" />
+    <div class="RIP"><audio id="bark"><source src="assets/cohen.wav" type="audio/wav"></audio>thank you mr. cohen<br><br>R.I.P.<br><br><!-- <button id="mute">mute</button> --></div>
+  </div>
+
+  <div class="today day">
+    <!--   would like to star this date -->
+    <div class="specialdate">06<p class="event"><br><br><br>DANNY'S BIRTHDAY<br><br></p><p class="location1">Crystal Springs</p></div>
+    <img src="assets/2016-11-06 13.48.02 HDR.jpg" class="photo b01" />
+	  <img src="assets/2016-11-06 15.18.53 HDR.jpg" class="photo b02" />
+	  <img src="assets/2016-11-06 13.48.12.jpg" class="photo b03" />
+    <div class="diary">it was danny's birthday today, we saw david wilcock and had a great walk around the reservoir.</div>
+  </div>
+
+  <div class="today day">
+    <div class="date">07<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-07 15.27.32 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-07 14.56.18.jpg" class="photo b02" />
+    <img src="assets/2016-11-07 13.14.06.jpg" class="photo b03" />
+    <div class="RIP"><audio id="bark"><source src="assets/cohen.wav" type="audio/wav"></audio>thank you mr. cohen<br><br>R.I.P.<br><br><!-- <button id="mute">mute</button> --></div>
+  </div>
+
+ <div class="today day">
+    <!--   would like to star this date -->
+    <div class="specialdate">08<p class="event"><br><br><br>ELECTION DAY<br><br></p><p class="location1">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">09<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-06 13.48.02 HDR.jpg" class="photo b01" />
+    <img src="assets/2016-11-06 15.18.53 HDR.jpg" class="photo b02" />
+    <img src="assets/2016-11-06 13.48.12.jpg" class="photo b03" />
+    <div class="diary">it was danny's birthday today, we saw david wilcock and had a great walk around the reservoir.</div>
+
+  </div>
+
+  <div class="today day">
+    <div class="date">10<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-07 15.27.32 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-07 14.56.18.jpg" class="photo b02" />
+    <img src="assets/2016-11-07 13.14.06.jpg" class="photo b03" />
+    <div class="RIP"><audio id="bark"><source src="assets/cohen.wav" type="audio/wav"></audio>thank you mr. cohen<br><br>R.I.P.<br><br><!-- <button id="mute">mute</button> --></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">11<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+      <!--   would like to star this date -->
+    <div class="date">12<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-06 13.48.02 HDR.jpg" class="photo b01" />
+    <img src="assets/2016-11-06 15.18.53 HDR.jpg" class="photo b02" />
+    <img src="assets/2016-11-06 13.48.12.jpg" class="photo b03" />
+    <div class="diary">it was danny's birthday today, we saw david wilcock and had a great walk around the reservoir.</div>
+
+  </div>
+
+  <div class="today day">
+    <div class="date">13<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-07 15.27.32 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-07 14.56.18.jpg" class="photo b02" />
+    <img src="assets/2016-11-07 13.14.06.jpg" class="photo b03" />
+    <div class="RIP"><audio id="bark"><source src="assets/cohen.wav" type="audio/wav"></audio>thank you mr. cohen<br><br>R.I.P.<br><br><!-- <button id="mute">mute</button> --></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">14<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+    <div class="today day">
+    <div class="date">15<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">16<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">17<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">18<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">19<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">19<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">20<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">21<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">22<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">23<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">24<p class="location">Los Angeles</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">25<p class="location">Los Angeles</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">26<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">27<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">28<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">29<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  <div class="today day">
+    <div class="date">30<p class="location">San Francisco</p></div>
+    <img src="assets/2016-11-08 07.35.07 copy.jpg" class="photo b01" />
+    <img src="assets/2016-11-08 13.56.47 copy.jpg" class="photo b02" />
+    <img src="assets/2016-11-08 14.58.04.jpg" class="photo b03" />
+    <div class="diary">I drove down to Menlo Park today and met with the Hewlett Foundation. Tonight's the election...
+    <p class="url"><a href="full-day_1108.html">more</a></p></div>
+  </div>
+
+  </section>
+
+
+</body>
+</html>
