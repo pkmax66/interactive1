@@ -1,0 +1,378 @@
+<!doctype html>
+
+<html lang="en">
+
+	<head>
+
+	  	<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
+	  	<link href="https://fonts.googleapis.com/css?family=Loved+by+the+King|Over+the+Rainbow|Shadows+Into+Light|Shadows+Into+Light+Two|Sue+Ellen+Francisco" rel="stylesheet">
+	  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Full Day : 11.11.16</title>
+
+		<style>
+
+/*font-family: 'Over the Rainbow', cursive;
+font-family: 'Loved by the King', cursive;
+font-family: 'Shadows Into Light', cursive;
+font-family: 'Sue Ellen Francisco', cursive;*/
+
+
+			body{
+	  			font-family: 'Noto Sans', sans-serif;
+			    margin: 0;
+		    	padding: 0;
+		    	background-image: url("assets/bottle.jpg");
+			    background-size: cover;
+			    background-repeat: no-repeat;
+		    }
+
+		  a:link    {color:#105970; background-color:transparent; text-decoration:underline}
+	      a:visited {color:grey; background-color:transparent; text-decoration:none}
+	      a:hover   {color:yellow; background-color:transparent; text-decoration:underline}
+	      a:active  {color:yellow; background-color:transparent; text-decoration:underline}
+			
+
+		    h1{
+      			font-family: 'Noto Sans', sans-serif;
+      			font-weight: 400;
+      			font-size: 1em;
+      			color: #105970;
+				padding-left: 30px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+		    }
+
+		    h2{
+      			font-family: 'Noto Sans', sans-serif;
+      			font-weight: 400;
+      			font-size: 1em;
+      			color: #105970;
+				padding-left: 30px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+		    }
+
+			#form {
+			    position: absolute;
+				bottom: 50px;
+				width: 250px;
+				height: 250px;
+				background-color: white;
+				opacity: 0.75;
+				z-index: 4;
+			}
+
+			#entry {
+			    position: absolute;
+			    left: 275px;
+				bottom: 50px;
+/*				width: calc(100% - 275px);*/
+				width: 300px;
+				height: 250px;
+				background-color: white;
+				float: right;
+				opacity: 0.75;
+				z-index: 4;
+			}
+
+			#notes {
+			    position: absolute;
+			    left: 575px;
+				bottom: 50px;
+/*				width: calc(100% - 275px);*/
+				width: 300px;
+				height: 250px;
+				background-color: white;
+				float: right;
+				opacity: 0.75;
+				z-index: 4;
+			}
+
+			#diary {
+			    position: absolute;
+				bottom: 325px;
+				width: 875px;
+				height: calc(60% - 100px);
+				min-height: 400px;
+				max-height: 550px;
+				background-color: white;
+				opacity: 0.75;
+				color: #105970;
+			}
+
+
+			#thumbnails img {
+				width: 100px;
+				float: right;
+				margin-right: 10px;
+				cursor: pointer;
+			}
+
+			#work {
+      			width: 200px;
+      			margin-left: 30px;
+			}
+
+			#well {
+      			width: 200px;
+      			height: 30px;
+      			margin-left: 30px;
+      			padding-bottom: 23px;
+			}
+
+			#thoughts {
+				font-family: 'Over the Rainbow', cursive;
+/*      			font-weight: 700;
+*/      		font-size: 1.5em;
+      			vertical-align: top;
+      			line-height: 1em;
+      			color: blue;
+      			width: 800px;
+				height: 300px;
+				border-color: transparent;
+			}
+			
+			.score {
+				color: transparent;
+				font-size: 3em;
+				font-weight: 400;
+				text-align: center;
+				width: 150px;
+			    margin-left: 30px;
+			    margin-bottom: 20px;
+			    display: inline-block;
+				box-shadow: inset 0 0 5px #999999;
+			}
+
+			.total{
+				color: #105970;
+				transition: 1s ease-in;
+			}
+			
+/*			.note{
+				left: 125px;
+				top: 125px;
+				opacity: 1;*/
+/*				height: 300px;
+				width: 100%;*/
+			}
+
+/*			.largeNote{
+				position: absolute;
+				right: 200px;
+				top: 100px;
+				opacity: 0.5;
+			}*/
+
+
+			.select select:hover,
+			.select select:focus {
+				color: #000;
+				background: #FCF4AA;
+			}
+
+/*			.select select:disabled {
+				pointer-events: none;
+				opacity: .5;
+			}*/
+
+			.select__arrow {
+				position: absolute;
+				top: 16px;
+				right: 15px;
+				width: 0;
+				height: 0;
+				pointer-events: none;
+				border-width: 8px 5px 0 5px;
+				border-style: solid;
+				border-color: #7b7b7b transparent transparent transparent;
+			}
+			.select select:hover ~ .select__arrow,
+			.select select:focus ~ .select__arrow {
+				border-top-color: #000;
+			}
+
+			.select select:disabled ~ .select__arrow {
+				border-top-color: #ccc;
+			}
+
+			.location{
+				position: absolute;
+				bottom: 50px;
+				left: 10px;
+			}
+
+			.thumb01{
+				float: right;
+				margin-right: 10px;
+				cursor: pointer;
+			}
+
+			.thumb02{
+				float: right;
+				margin-right: 10px;
+				cursor: pointer;
+			}
+
+			.disappear{
+				z-index: initial;
+			}
+
+			input[type=text], select {
+			    font-family: 'Noto Sans', sans-serif;
+      			font-weight: 400;
+      			font-size: 0.75em;
+      			color: #105970;
+      			width: 150px;
+      			height: 30px;
+      			padding: 5px;
+			    margin-left: 30px;
+			    margin-bottom: 10px;
+			    display: inline-block;
+				border: 1px solid #aaa;
+			    border-radius: 1px;
+			    box-sizing: border-box;
+			}
+
+			input[type=checkbox] {
+				margin-left: 30px;
+/*				margin-top: 10px;
+*/				width: 25px;
+				height: 25px;
+				vertical-align: center;
+				cursor: pointer;
+				border-width: 0 2px 2px 0;
+			}
+
+
+			input[type=checkbox]:focus {
+			    border: 2px solid #FCF4AA
+			}
+
+			input[type=text]:focus {
+			    border: 2px solid #FCF4AA;
+			}
+
+			input[type=text]:active {
+			    border: 2px solid #FCF4AA;
+			}
+
+			input[type=submit] {
+			    width: 30%;
+			    background-color: #FCF4AA;
+			    color: white;
+			    padding: 14px 20px;
+			    margin: 8px 0;
+			    border: none;
+			    cursor: pointer;
+			}
+
+			input[type=submit]:hover {
+			    background-color: #FCF4AA;
+			}
+
+		</style>
+
+		<script>
+
+			$(document).ready(function() {
+
+			$('.thumb01').click(function() {
+			  $(this).addClass('on-click');
+			  $("body").css({'background-image':'url(assets/bottle.jpg)'});
+			})
+
+			$('.thumb02').click(function() {
+			  $(this).addClass('on-click');
+			  $("body").css({'background-image':'url(assets/ziggy.jpg)'});
+			})
+
+		    $('.score').click(function() {
+		      $(this).addClass('total');
+		    })
+
+			});
+
+		</script>
+
+	</head>
+
+	<body>
+<!-- 
+	<div class="largeNote">
+		<img src="diaryentry.jpg">
+	</div> -->
+
+	<section id="thumbnails">
+		<img src="assets/bottle-thumb.jpg" class="thumb01">
+		<img src="assets/ziggy-thumb.jpg" class="thumb02">
+	</section>
+
+	<section id="form">
+			<h1>How are you today?</h1>
+			<div class="select">
+				<select>
+					<option><h1>Mental</h1></option>
+					<option>5 - Joyous</option>
+					<option>4 - Happy</option>
+					<option>3 - Just fine</option>
+					<option>2 - Hanging in there</option>
+					<option>1 - Mean Reds</option>
+				</select>
+			</div>
+			<div class="select">
+				<select>
+					<option><h1>Physical</h1></option>
+					<option>5 - Fantastic</option>
+					<option>4 - Really Good</option>
+					<option>3 - No complaints</option>
+					<option>2 - Could be worse</option>
+					<option>1 - Ugh</option>
+				</select>
+			</div>
+			<div class="score">= 7</div>
+	</section>
+			
+	<section id="entry">
+			<form action="action_page.php">
+			<label for="fname"><h1>Focus for today:</h1></label>
+			    <div class="control-group"><label class="control control--checkbox"></label></div>
+				<input type="checkbox"/>
+<!-- 				<div class="control__indicator"></div>
+ -->			</label>
+				<input type="text" id="work">
+			    <div class="control-group"><label class="control control--checkbox"></label></div>
+				<input type="checkbox"/>
+<!-- 				<div class="control__indicator"></div>
+ -->			</label>
+			    <input type="text" id="work">
+				<div class="control-group"><label class="control control--checkbox"></label></div>
+				<input type="checkbox"/>
+<!-- 				<div class="control__indicator"></div>    
+ -->			    <input type="text" id="work">
+			</form>
+	</section>
+
+	<section id="notes">
+			<form action="action_page.php">
+			<label for="fname"><h2>What went well:</h2></label>
+				<input type="text" id="well">
+			    <input type="text" id="well">
+  				<input type="text" id="well">
+			</form>
+	</section>
+
+	<section id="diary">
+			<form action="action_page.php">
+			<label for="fname"><h1><a href="full-day_111116.html" target="_blank">Yesterday</a>&emsp;11.11&emsp;<a href="full-day_111316.html" target="_blank">Tomorrow</a></h1></label>
+			<input type="text" id="thoughts">
+			</form>
+	</section>
+
+	</body>
+
+
+</html>
