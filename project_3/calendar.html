@@ -13,10 +13,6 @@
   <style>
 
 /* Questions:
-- how to change a date to a visited color? #ffe6f2
-- allow viewer to set color
-- day is not centering in browser window anywhere, flush left.
-- diary border doesn't change on hover, same with date.
 - cursor changes to from hand to pointer // Kaz will get back to me...
 
 <script>
@@ -148,11 +144,6 @@ $( "p" ).on( "mouseover", function() {
 
     .date:hover{
       color: white;
-      border: solid;
-      border-bottom-color: pink;
-      border-bottom-width: 2px;
-      border-left-color: pink;
-      border-left-width: 2px;
       transition: 0.75s ease-in;
       background-color: #FCF4AA;
       transform: scale(1.05);
@@ -161,10 +152,6 @@ $( "p" ).on( "mouseover", function() {
 
     .specialdate:hover{
       color: white;
-      border-bottom-color: pink;
-      border-bottom-width: 2px;
-      border-left-color: pink;
-      border-left-width: 2px;
       transition: 0.75s ease-in;
       background-color: #FCF4AA;
       transform: scale(1.05);
@@ -193,10 +180,8 @@ $( "p" ).on( "mouseover", function() {
 
     .diary:hover{
       transition: 0.75s ease-in;
-      color: #ccc;
-      cursor: pointer;
       background-color: white;
-      border: 2px solid yellow;
+      color: #ccc;
       cursor: pointer;
     }
 
@@ -218,8 +203,6 @@ $( "p" ).on( "mouseover", function() {
       color: #ccc;
       cursor: pointer;
       background-color: white;
-      border-width: 2px;
-      border-color: yellow;
       cursor: pointer;
     }
 
@@ -465,7 +448,7 @@ $( "p" ).on( "mouseover", function() {
   		$(".photo.b01").click(function(){
 
     			$(this).animate({
-            opacity: 1,
+            opacity: 0,
             right: 260,
   			})
   		});
@@ -473,7 +456,7 @@ $( "p" ).on( "mouseover", function() {
   		$(".photo.b02").click(function(){
 
   			$(this).animate({
-          opacity: 1,
+          opacity: 0,
           top: 255,
       })
       });
@@ -481,7 +464,7 @@ $( "p" ).on( "mouseover", function() {
   		$(".photo.b03").click(function(){
 
   			$(this).animate({
-          opacity: 1,
+          opacity: 0,
           left: 255,
   		})
   		});
