@@ -16,7 +16,6 @@
 
 /*font-family: 'Over the Rainbow', cursive;
 font-family: 'Loved by the King', cursive;
-font-family: 'Shadows Into Light Two', cursive;
 font-family: 'Shadows Into Light', cursive;
 font-family: 'Sue Ellen Francisco', cursive;*/
 
@@ -30,7 +29,7 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 			    background-repeat: no-repeat;
 		    }
 
-		  a:link    {color:yellow; background-color:transparent; text-decoration:none}
+		  a:link    {color:#105970; background-color:transparent; text-decoration:underline}
 	      a:visited {color:grey; background-color:transparent; text-decoration:none}
 	      a:hover   {color:yellow; background-color:transparent; text-decoration:underline}
 	      a:active  {color:yellow; background-color:transparent; text-decoration:underline}
@@ -51,14 +50,14 @@ font-family: 'Sue Ellen Francisco', cursive;*/
       			font-weight: 400;
       			font-size: 1em;
       			color: #105970;
-/*				padding-left: 30px;
-*/				padding-top: 10px;
+				padding-left: 30px;
+				padding-top: 10px;
 				padding-bottom: 10px;
 		    }
 
 			#form {
 			    position: absolute;
-				bottom: 5%;
+				bottom: 50px;
 				width: 250px;
 				height: 250px;
 				background-color: white;
@@ -69,7 +68,7 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 			#entry {
 			    position: absolute;
 			    left: 275px;
-				bottom: 5%;
+				bottom: 50px;
 /*				width: calc(100% - 275px);*/
 				width: 300px;
 				height: 250px;
@@ -82,7 +81,7 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 			#notes {
 			    position: absolute;
 			    left: 575px;
-				bottom: 5%;
+				bottom: 50px;
 /*				width: calc(100% - 275px);*/
 				width: 300px;
 				height: 250px;
@@ -94,9 +93,10 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 
 			#diary {
 			    position: absolute;
-				top: 100px;
+				bottom: 325px;
 				width: 875px;
 				height: calc(60% - 100px);
+				min-height: 400px;
 				max-height: 550px;
 				background-color: white;
 				opacity: 0.75;
@@ -111,20 +111,27 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 				cursor: pointer;
 			}
 
-/*			#work {
-			    font-family: 'Noto Sans', sans-serif;
-      			font-weight: 400;
-      			font-size: 0.5em;
-      			color: #105970;
-				background-color: white;
-			}*/
+			#work {
+      			width: 200px;
+      			margin-left: 30px;
+			}
 
-			.thoughts {
-				font-family: 'Loved by the King', cursive;
-				padding-left: 50px;
-				padding-top: 50px;
-				width: 250px;
-				border: 0 solid transparent;
+			#well {
+      			width: 200px;
+      			height: 30px;
+      			margin-left: 30px;
+      			padding-bottom: 23px;
+			}
+
+			#thoughts {
+				font-family: 'Over the Rainbow', cursive;
+/*      			font-weight: 700;
+*/      		font-size: 1.5em;
+      			vertical-align: top;
+      			line-height: 1em;
+      			color: blue;
+      			width: 800px;
+				height: 300px;
 			}
 			
 			.score {
@@ -219,64 +226,15 @@ font-family: 'Sue Ellen Francisco', cursive;*/
       			font-size: 0.75em;
       			color: #105970;
       			width: 150px;
-			    padding: 30px;
-			    margin-left: 30px;
-			    margin-bottom: 20px;
-			    display: inline-block;
-				border: 1px solid #aaa;
-/*			    border-radius: 1px;
-*/			    box-sizing: border-box;
-			}
-
-			input[type=text], .work {
-			    font-family: 'Noto Sans', sans-serif;
-      			font-weight: 400;
-      			font-size: 0.75em;
-      			color: #105970;
-      			width: 200px;
       			height: 30px;
       			padding: 5px;
-			    margin-left: 5px;
-			    margin-bottom: 10px;
-			    display: inline-block;
-				border: 1px solid #aaa;
-			    border-radius: 1px;
-			    box-sizing: border-box;
-			}
-
-			input[type=text], .well {
-			    font-family: 'Noto Sans', sans-serif;
-      			font-weight: 400;
-      			font-size: 0.75em;
-      			color: #105970;
-      			width: 200px;
-      			height: 30px;
-      			padding: 5px;
-			    margin-top: 10px;
-			    margin-left: 5px;
-			    margin-bottom: 10px;
-			    display: inline-block;
-				border: 1px solid #aaa;
-			    border-radius: 1px;
-			    box-sizing: border-box;
-			}
-
-			input[type=text], .thoughts {
-			    font-family: 'Noto Sans', sans-serif;
-      			font-weight: 400;
-      			font-size: 0.75em;
-      			color: #105970;
-      			width: 200px;
-      			height: 30px;
-      			padding: 5px;
-			    margin-top: 10px;
 			    margin-left: 30px;
 			    margin-bottom: 10px;
-/*			    display: inline-block;
+			    display: inline-block;
 				border: 1px solid #aaa;
 			    border-radius: 1px;
 			    box-sizing: border-box;
-*/			}
+			}
 
 			input[type=checkbox] {
 				margin-left: 30px;
@@ -308,19 +266,12 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 			    padding: 14px 20px;
 			    margin: 8px 0;
 			    border: none;
-/*			    border-radius: 1px;*/
 			    cursor: pointer;
 			}
 
 			input[type=submit]:hover {
 			    background-color: #FCF4AA;
 			}
-
-/*			div {
-			    border-radius: 5px;
-			    background-color: #f2f2f2;
-			    padding: 5px;
-			}*/
 
 		</style>
 
@@ -415,8 +366,8 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 
 	<section id="diary">
 			<form action="action_page.php">
-			<label for="fname"><h1>Nov.12</h1></label>
-				<input type="text" id="thoughts">
+			<label for="fname"><h1><a href="full-day_111216.html" target="_blank">Yesterday</a>&emsp;11.12&emsp;<a href="full-day_111316.html" target="_blank">Tomorrow</a></h1></label>
+			<input type="text" id="thoughts">
 			</form>
 	</section>
 
