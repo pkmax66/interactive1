@@ -5,6 +5,8 @@
 	<head>
 
 		<link href="https://fonts.googleapis.com/css?family=Cormorant:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 		<title>Enter (Project 3 - Dayala)</title>
 
@@ -20,16 +22,22 @@
 		    }
 
 		    .enter {
-				  position: fixed;
-				  top: 50%;
-				  left: 50%;
-				  transform: translate(-50%, -50%);
+		    	position: fixed;
+		    	top: 50%;
+		    	left: 50%;
+		    	transform: translate(-50%, -50%);
 		    }
 
 		    .enter:hover{
 		    	cursor: pointer;
 		    }
 
+            @media screen and (max-width: 414px) {
+            	.enter{
+            	width: 295px;
+            	margin: 0 auto;
+				}
+            }
 
 		</style>
 
