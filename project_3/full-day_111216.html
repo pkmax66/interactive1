@@ -123,7 +123,7 @@ font-family: 'Sue Ellen Francisco', cursive;*/
       			padding-bottom: 23px;
 			}
 
-			#thoughts {
+			.thoughts {
 				font-family: 'Over the Rainbow', cursive;
 /*      			font-weight: 700;
 */      		font-size: 1.5em;
@@ -134,6 +134,19 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 				height: 300px;
 				border-color: transparent;
 			}
+
+			textarea {
+  				font-family: 'Over the Rainbow', cursive;
+				font-size: 1.1em;
+				line-height: 1.5em;
+      			margin-left: 50px;
+      			vertical-align: top;
+      			color: blue;
+      			width: 800px;
+				height: 300px;
+				border-color: transparent;
+				outline: none;
+}
 			
 			.score {
 				color: transparent;
@@ -366,11 +379,11 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 	</section>
 
 	<section id="diary">
-			<form action="action_page.php">
-			<label for="fname"><h1><a href="full-day_111116.html" target="_blank">Yesterday</a>&emsp;11.12&emsp;<a href="full-day_111316.html" target="_blank">Tomorrow</a></h1></label>
-			<input type="text" id="thoughts">
-			</form>
-	</section>
+<!-- 			<form action="action_page.php">
+ -->			<label for="fname"><h1><a href="full-day_111116.html">Yesterday</a>&emsp;11.12&emsp;<a href="full-day_111316.html">Tomorrow</a></h1></label>
+			<div class="thoughts"><textarea rows="20" cols="110" 2em></textarea></div>
+<!-- 			</form>
+ -->	</section>
 
 	</body>
 
