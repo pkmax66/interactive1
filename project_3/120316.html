@@ -10,7 +10,7 @@
 	 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<title>Full Day : 120216 (Yesterday) </title>
+		<title>Full Day : 120316 (Today) </title>
 
 		<style>
 
@@ -24,7 +24,7 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 	  			font-family: 'Noto Sans', sans-serif;
 			    margin: 0;
 		    	padding: 0;
-		    	background-image: url("assets/full-size_starfish.jpg");
+		    	background-image: url("assets/note_big.jpg");
 			    background-size: cover;
 			    background-repeat: no-repeat;
 		    }
@@ -136,6 +136,11 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 				border: solid 1px #ccc;
 			}
 
+			#thumbnails img:hover{
+				border: solid 2px #FCF4AA;
+			}
+
+
 			#work {
       			width: 200px;
       			margin-left: 1px;
@@ -172,7 +177,7 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 			}
 
 			.score {
-				color: #105970;
+				color: transparent;
 				font-size: 3em;
 				font-weight: 400;
 				text-align: center;
@@ -188,6 +193,10 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 				transition: 1s ease-in;
 			}
 			
+			.image02 {
+		    	background-image: url("assets/phone.jpg");
+			}
+
 /*			.note{
 				left: 125px;
 				top: 125px;
@@ -331,17 +340,18 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 
 			$('.thumb01').click(function() {
 			  $(this).addClass('on-click');
-			  $("body").css({'background-image':'url(assets/01-1202_IMG_3882.JPG)'});
+			  $("body").css({'background-image':'url(assets/xmas.jpg)'});
 			})
 
 			$('.thumb02').click(function() {
 			  $(this).addClass('on-click');
-			  $("body").css({'background-image':'url(assets/full-size_IMG_3885.jpg)'});
+			  $(this).addClass('image02')
+			  $("body").css({'background-image':'url(assets/phone.jpg)'});
 			})
 
 			$('.thumb03').click(function() {
 			  $(this).addClass('on-click');
-			  $("body").css({'background-image':'url(assets/full-size_starfish.jpg)'});
+			  $("body").css({'background-image':'url(assets/note_big.jpg)'});
 			})
 
 		    $('.score').click(function() {
@@ -361,9 +371,9 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 	</div> -->
 
 	<section id="thumbnails">
-		<img src="assets/2016-12-03 17.14.14.jpg" class="thumb01">
-	    <img src="assets/2016-12-03 17.15.32.jpg"  class="thumb02">
-	    <img src="assets/2016-12-03 17.03.05.jpg" class="thumb03">
+	    <img src="assets/button.png"  class="thumb01">
+	    <img src="assets/button.png"  class="thumb02">
+	    <img src="assets/note.jpg"    class="thumb03">
 	</section>
 
 	<section id="form">
@@ -395,7 +405,7 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 			<form action="action_page.php">
 			<label for="fname"><h1>Focus for today:</h1></label>
 			    <div class="control-group"><label class="control control--checkbox"></label></div>
-				<input type="checkbox" checked="checked"/>
+				<input type="checkbox"/>
 				</label>
 				<input type="text" id="work">
 			    <div class="control-group"><label class="control control--checkbox"></label></div>
@@ -403,7 +413,7 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 				</label>
 				<input type="text" id="work">
 				<div class="control-group"><label class="control control--checkbox"></label></div>
-				<input type="checkbox" checked="checked"/>
+				<input type="checkbox"/>
 				<input type="text" id="work">
 			</form>
 	</section>
@@ -419,8 +429,8 @@ font-family: 'Sue Ellen Francisco', cursive;*/
 	</section>
 
 	<section id="diary">
-			<label for="fname"><h3><a href="full-day_120216.html">YESTERDAY</span>&emsp;&emsp;12.02&emsp;&emsp;<a href="full-day_120416.html">TOMORROW</a></h2></label>
-			<div class="thoughts"><textarea rows="20" cols="110" 2em>   &#13;&#10;&#13;&#10;</textarea></div>
+			<label for="fname"><h3><a href="120216.html">YESTERDAY</a>&emsp;&emsp;12.02&emsp;&emsp;<a href="full-day_120416.html">TOMORROW</a></h2></label>
+			<div class="thoughts"><textarea rows="20" cols="110" 2em></textarea></div>
 	</section>
 
 	</body>
